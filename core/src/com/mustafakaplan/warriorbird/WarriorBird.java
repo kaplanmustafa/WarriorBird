@@ -33,7 +33,7 @@ public class WarriorBird extends ApplicationAdapter {
 	float velocity = 0;
 	float gravity = 0.2f;
 	float distance = 0;
-	float enemyVelocity = 11;
+	float enemyVelocity = 6;
 	Random random;
 	int score = 0;
 	int scoredEnemy = 0;
@@ -166,18 +166,28 @@ public class WarriorBird extends ApplicationAdapter {
 
 					if(score > 9) {
 						if(score == 10 && i == 1) {
-							//do nothing
+							enemyVelocity = 7;
 						} else {
 							batch.draw(bee3, enemyX[i], Gdx.graphics.getHeight() / 2 + enemyOffSet3[i], Gdx.graphics.getWidth() / 15, Gdx.graphics.getHeight() / 9);
-							enemyCircles3[i] = new Circle(enemyX[i] + Gdx.graphics.getWidth() / 30, Gdx.graphics.getHeight() / 2 + enemyOffSet3[i] + Gdx.graphics.getHeight() / 18, Gdx.graphics.getWidth() / 30);
+							if(score == 19 && i == 3) {
+
+							} else {
+								enemyCircles3[i] = new Circle(enemyX[i] + Gdx.graphics.getWidth() / 30, Gdx.graphics.getHeight() / 2 + enemyOffSet3[i] + Gdx.graphics.getHeight() / 18, Gdx.graphics.getWidth() / 30);
+							}
+
 						}
 					}
+					if(score == 19 && i == 3) {
 
-					enemyCircles[i] = new Circle(enemyX[i] + Gdx.graphics.getWidth() / 30, Gdx.graphics.getHeight() / 2 + enemyOffSet[i] + Gdx.graphics.getHeight() / 18, Gdx.graphics.getWidth() / 30);
-					enemyCircles2[i] = new Circle(enemyX[i] + Gdx.graphics.getWidth() / 30, Gdx.graphics.getHeight() / 2 + enemyOffSet2[i] + Gdx.graphics.getHeight() / 18, Gdx.graphics.getWidth() / 30);
+					} else {
+						enemyCircles[i] = new Circle(enemyX[i] + Gdx.graphics.getWidth() / 30, Gdx.graphics.getHeight() / 2 + enemyOffSet[i] + Gdx.graphics.getHeight() / 18, Gdx.graphics.getWidth() / 30);
+						enemyCircles2[i] = new Circle(enemyX[i] + Gdx.graphics.getWidth() / 30, Gdx.graphics.getHeight() / 2 + enemyOffSet2[i] + Gdx.graphics.getHeight() / 18, Gdx.graphics.getWidth() / 30);
+					}
+
 				}
 				else if(score >= 20) {
 					if(score == 20 && i == 3) {
+						enemyVelocity = 8;
 						batch.draw(bee1, enemyX[i], Gdx.graphics.getHeight() / 2 + enemyOffSet[i], Gdx.graphics.getWidth() / 15, Gdx.graphics.getHeight() / 9);
 						batch.draw(bee2, enemyX[i], Gdx.graphics.getHeight() / 2 + enemyOffSet2[i], Gdx.graphics.getWidth() / 15, Gdx.graphics.getHeight() / 9);
 						batch.draw(bee3, enemyX[i], Gdx.graphics.getHeight() / 2 + enemyOffSet3[i], Gdx.graphics.getWidth() / 15, Gdx.graphics.getHeight() / 9);
@@ -187,7 +197,7 @@ public class WarriorBird extends ApplicationAdapter {
 
 						if(score > 29) {
 							if(score == 30 && i == 1) {
-								//do nothing
+								enemyVelocity = 9;
 							} else {
 								batch.draw(secondBee3, enemyX[i], Gdx.graphics.getHeight() / 2 + enemyOffSet3[i], Gdx.graphics.getWidth() / 15, Gdx.graphics.getHeight() / 9);
 								enemyCircles3[i] = new Circle(enemyX[i] + Gdx.graphics.getWidth() / 30, Gdx.graphics.getHeight() / 2 + enemyOffSet3[i] + Gdx.graphics.getHeight() / 18, Gdx.graphics.getWidth() / 30);
