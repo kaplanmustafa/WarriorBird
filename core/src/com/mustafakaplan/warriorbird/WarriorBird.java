@@ -26,6 +26,9 @@ public class WarriorBird extends ApplicationAdapter {
 	Texture secondBee1;
 	Texture secondBee2;
 	Texture secondBee3;
+	Texture ufo1;
+	Texture ufo2;
+	Texture ufo3;
 
 	float birdX = 0;
 	float birdY = 0;
@@ -71,6 +74,9 @@ public class WarriorBird extends ApplicationAdapter {
 		secondBee1= new Texture("bee2.png");
 		secondBee2= new Texture("bee2.png");
 		secondBee3= new Texture("bee2.png");
+		ufo1= new Texture("ufo.png");
+		ufo2= new Texture("ufo.png");
+		ufo3= new Texture("ufo.png");
 
 		distance = Gdx.graphics.getWidth() / 2;
 		random = new Random();
@@ -87,7 +93,7 @@ public class WarriorBird extends ApplicationAdapter {
 		FreeTypeFontGenerator.FreeTypeFontParameter params = new FreeTypeFontGenerator.FreeTypeFontParameter();
 		params.color = Color.BLACK;
 		params.size = 80;
-		params.characters = "0123456789 GameOver!Sco:TpPlyAgin.";
+		params.characters = "0123456789 GameOver!Sco:TpPlyAgin.Wh";
 
 		gameLoop = Gdx.audio.newMusic(Gdx.files.internal("game-loop.wav"));
 		gameLoop.setLooping(true);
@@ -170,7 +176,7 @@ public class WarriorBird extends ApplicationAdapter {
 						} else {
 							batch.draw(bee3, enemyX[i], Gdx.graphics.getHeight() / 2 + enemyOffSet3[i], Gdx.graphics.getWidth() / 15, Gdx.graphics.getHeight() / 9);
 							if(score == 19 && i == 3) {
-
+								//do nothing
 							} else {
 								enemyCircles3[i] = new Circle(enemyX[i] + Gdx.graphics.getWidth() / 30, Gdx.graphics.getHeight() / 2 + enemyOffSet3[i] + Gdx.graphics.getHeight() / 18, Gdx.graphics.getWidth() / 30);
 							}
@@ -178,14 +184,14 @@ public class WarriorBird extends ApplicationAdapter {
 						}
 					}
 					if(score == 19 && i == 3) {
-
+						//do nothing
 					} else {
 						enemyCircles[i] = new Circle(enemyX[i] + Gdx.graphics.getWidth() / 30, Gdx.graphics.getHeight() / 2 + enemyOffSet[i] + Gdx.graphics.getHeight() / 18, Gdx.graphics.getWidth() / 30);
 						enemyCircles2[i] = new Circle(enemyX[i] + Gdx.graphics.getWidth() / 30, Gdx.graphics.getHeight() / 2 + enemyOffSet2[i] + Gdx.graphics.getHeight() / 18, Gdx.graphics.getWidth() / 30);
 					}
 
 				}
-				else if(score >= 20) {
+				else if(score >= 20 && score <= 39) {
 					if(score == 20 && i == 3) {
 						enemyVelocity = 8;
 						batch.draw(bee1, enemyX[i], Gdx.graphics.getHeight() / 2 + enemyOffSet[i], Gdx.graphics.getWidth() / 15, Gdx.graphics.getHeight() / 9);
@@ -200,6 +206,36 @@ public class WarriorBird extends ApplicationAdapter {
 								enemyVelocity = 9;
 							} else {
 								batch.draw(secondBee3, enemyX[i], Gdx.graphics.getHeight() / 2 + enemyOffSet3[i], Gdx.graphics.getWidth() / 15, Gdx.graphics.getHeight() / 9);
+								if(score == 39 && i == 3) {
+									//do nothing
+								} else {
+									enemyCircles3[i] = new Circle(enemyX[i] + Gdx.graphics.getWidth() / 30, Gdx.graphics.getHeight() / 2 + enemyOffSet3[i] + Gdx.graphics.getHeight() / 18, Gdx.graphics.getWidth() / 30);
+								}
+							}
+						}
+
+						if(score == 39 && i == 3) {
+							//do nothing
+						} else {
+							enemyCircles[i] = new Circle(enemyX[i] + Gdx.graphics.getWidth() / 30, Gdx.graphics.getHeight() / 2 + enemyOffSet[i] + Gdx.graphics.getHeight() / 18, Gdx.graphics.getWidth() / 30);
+							enemyCircles2[i] = new Circle(enemyX[i] + Gdx.graphics.getWidth() / 30, Gdx.graphics.getHeight() / 2 + enemyOffSet2[i] + Gdx.graphics.getHeight() / 18, Gdx.graphics.getWidth() / 30);
+						}
+					}
+				} else if(score >= 40) {
+					if(score == 40 && i == 3) {
+						enemyVelocity = 10;
+						batch.draw(secondBee1, enemyX[i], Gdx.graphics.getHeight() / 2 + enemyOffSet[i], Gdx.graphics.getWidth() / 15, Gdx.graphics.getHeight() / 9);
+						batch.draw(secondBee2, enemyX[i], Gdx.graphics.getHeight() / 2 + enemyOffSet2[i], Gdx.graphics.getWidth() / 15, Gdx.graphics.getHeight() / 9);
+						batch.draw(secondBee3, enemyX[i], Gdx.graphics.getHeight() / 2 + enemyOffSet3[i], Gdx.graphics.getWidth() / 15, Gdx.graphics.getHeight() / 9);
+					} else {
+						batch.draw(ufo1, enemyX[i], Gdx.graphics.getHeight() / 2 + enemyOffSet[i], Gdx.graphics.getWidth() / 15, Gdx.graphics.getHeight() / 9);
+						batch.draw(ufo2, enemyX[i], Gdx.graphics.getHeight() / 2 + enemyOffSet2[i], Gdx.graphics.getWidth() / 15, Gdx.graphics.getHeight() / 9);
+
+						if(score > 49) {
+							if(score == 50 && i == 1) {
+								enemyVelocity = 11;
+							} else {
+								batch.draw(ufo3, enemyX[i], Gdx.graphics.getHeight() / 2 + enemyOffSet3[i], Gdx.graphics.getWidth() / 15, Gdx.graphics.getHeight() / 9);
 								enemyCircles3[i] = new Circle(enemyX[i] + Gdx.graphics.getWidth() / 30, Gdx.graphics.getHeight() / 2 + enemyOffSet3[i] + Gdx.graphics.getHeight() / 18, Gdx.graphics.getWidth() / 30);
 							}
 						}
@@ -221,6 +257,8 @@ public class WarriorBird extends ApplicationAdapter {
 				gameWaiting.play();
 			}
 		} else if(gameState == 0) {
+
+			font2.draw(batch, "Welcome To The Game!\nTap To Play.." , Gdx.graphics.getWidth() / 3, Gdx.graphics.getHeight() - Gdx.graphics.getHeight() / 3);
 
 			if(Gdx.input.justTouched()) {
 				gameState = 1;
@@ -250,6 +288,7 @@ public class WarriorBird extends ApplicationAdapter {
 				velocity = 0;
 				scoredEnemy = 0;
 				score = 0;
+				enemyVelocity = 6;
 			}
 		}
 
